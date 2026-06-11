@@ -1,0 +1,14 @@
+# Secrets
+.env
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Claude Code / MCP
+.mcp.json
+.agents/
+skills-lock.json
+.claude/
