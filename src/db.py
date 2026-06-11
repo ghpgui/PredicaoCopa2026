@@ -14,7 +14,11 @@ def get_engine():
 
 
 def get_raw_connection():
-    return psycopg2.connect(_DATABASE_URL)
+    url = _DATABASE_URL
+    if "sslmode" not in url:
+        sep = "&" if "?" in url else "?"
+        url = url + sep + "sslmode=require"
+    return psycopg2.connect(url)
 
 
 def read_sql(query: str, params=None) -> pd.DataFrame:
